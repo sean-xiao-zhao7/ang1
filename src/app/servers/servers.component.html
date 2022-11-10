@@ -3,7 +3,7 @@
   <input
     matInput
     placeholder="Name"
-    [value]="newServerName"
+    [(ngModel)]="newServerName"
     (input)="serverNameInputHandler($event)"
   />
 </mat-form-field>
