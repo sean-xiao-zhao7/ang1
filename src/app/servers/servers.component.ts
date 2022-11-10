@@ -7,13 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
   newServerName: string = '';
-  allowAddServer: boolean = this.newServerName !== '';
+  allowAddServer: boolean = false;
+  addStatus: string = 'normal';
+  currentServerName: string = '';
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  addServerHandler() {}
+  addServerHandler() {
+    this.addStatus = 'success';
+    this.currentServerName = this.newServerName;
+    this.newServerName = '';
+    this.allowAddServer = false;
+  }
 
   serverNameInputHandler(event: any) {
     this.newServerName = event.target.value;
