@@ -10,6 +10,7 @@ export class ServersComponent implements OnInit {
   allowAddServer: boolean = false;
   addStatus: string = 'normal';
   currentServerName: string = '';
+  currentServers: Array<string> = [];
 
   constructor() {}
 
@@ -20,6 +21,7 @@ export class ServersComponent implements OnInit {
     this.currentServerName = this.newServerName;
     this.newServerName = '';
     this.allowAddServer = false;
+    this.currentServers.push(this.currentServerName);
   }
 
   serverNameInputHandler(event: any) {

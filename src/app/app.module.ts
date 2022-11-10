@@ -13,6 +13,8 @@ import { ServersComponent } from './servers/servers.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [AppComponent, ServerComponent, ServersComponent],
@@ -23,6 +25,8 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatInputModule,
     FormsModule,
+    MatListModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
