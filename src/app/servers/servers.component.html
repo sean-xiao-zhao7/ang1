@@ -1,8 +1,18 @@
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>New server name</mat-label>
+  <input
+    matInput
+    placeholder="Name"
+    [value]="newServerName"
+    (input)="serverNameInputHandler($event)"
+  />
+</mat-form-field>
 <button
   mat-fab
   color="primary"
   aria-label="Add a new server"
   [disabled]="!allowAddServer"
+  (click)="addServerHandler()"
 >
   <mat-icon>add</mat-icon>
 </button>

@@ -9,6 +9,7 @@ import { ServersComponent } from './servers/servers.component';
 // material
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [AppComponent, ServerComponent, ServersComponent],
@@ -17,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
