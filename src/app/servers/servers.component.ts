@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-servers',
@@ -6,26 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css'],
 })
 export class ServersComponent implements OnInit {
-  newServerName: string = '';
-  allowAddServer: boolean = false;
   addStatus: string = 'normal';
   currentServerName: string = '';
-  currentServers: Array<string> = [];
+  currentServerContent: string = '';
+  currentServers: Array<any> = [];
+  @ViewChild('serverContentInput') serverContentInput: ElementRef;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  addServerHandler() {
+  addServerHandler(serverNameInput: any) {
     this.addStatus = 'success';
-    this.currentServerName = this.newServerName;
-    this.newServerName = '';
-    this.allowAddServer = false;
-    this.currentServers.push(this.currentServerName);
-  }
-
-  serverNameInputHandler(event: any) {
-    this.newServerName = event.target.value;
-    this.allowAddServer = this.newServerName !== '';
+    this.currentServerName = serverNameInput.value;
+    this.currentServerContent = this.serverContentInput.nativeElement.value;
+    this.currentServers.push({
+      name: this.currentServerName,
+      content: this.currentServerContent,
+    });
+    this.currentServerName = '';
+    this.currentServerContent = '';
+    this.serverContentInput.nativeElement.value = '';
+    serverNameInput.value = '';
   }
 }

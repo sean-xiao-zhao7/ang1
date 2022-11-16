@@ -1,18 +1,17 @@
 <mat-form-field class="example-full-width" appearance="fill">
   <mat-label>New server name</mat-label>
-  <input
-    matInput
-    placeholder="Name"
-    [(ngModel)]="newServerName"
-    (input)="serverNameInputHandler($event)"
-  />
+  <input matInput placeholder="Name" #serverNameInput />
+</mat-form-field>
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>New server content</mat-label>
+  <input matInput placeholder="Content" #serverContentInput />
 </mat-form-field>
 <button
   mat-fab
   color="primary"
   aria-label="Add a new server"
-  [disabled]="!allowAddServer"
-  (click)="addServerHandler()"
+  [disabled]="!serverNameInput.value || !serverContentInput.value"
+  (click)="addServerHandler(serverNameInput)"
 >
   <mat-icon>add</mat-icon>
 </button>
@@ -22,7 +21,7 @@
 <mat-card *ngIf="currentServers.length > 0">
   <mat-list role="list">
     <mat-list-item *ngFor="let server of currentServers">
-      {{ server }}
+      Name: {{ server.name }} Content: {{ server.content }}
     </mat-list-item>
   </mat-list>
 </mat-card>
